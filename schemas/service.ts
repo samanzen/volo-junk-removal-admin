@@ -23,21 +23,23 @@ export default defineType({
       },
       validation: (Rule) => Rule.required(),
     }),
+    // ADDED mainImage FIELD
+    defineField({
+      name: 'mainImage',
+      title: 'Main Image',
+      description: 'A high-quality, representative photo for this service.',
+      type: 'image',
+      options: {
+        hotspot: true, // Allows you to crop the image better
+      },
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: 'description',
       title: 'Short Description',
       description: 'A short, one-sentence description for SEO and previews.',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'mainImage',
-      title: 'Main Image',
-      description: 'A high-quality image representing this service.',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
     }),
     defineField({
       name: 'problem',
@@ -79,4 +81,10 @@ export default defineType({
       ],
     }),
   ],
+  preview: {
+    select: {
+      title: 'name',
+      media: 'mainImage', // Use the new image for the preview
+    },
+  },
 })
