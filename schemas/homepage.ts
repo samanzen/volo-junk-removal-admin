@@ -24,6 +24,16 @@ export default defineType({
       description: 'The smaller text directly below the main headline.',
       type: 'string',
     }),
+    // THIS IS THE NEW FIELD
+    defineField({
+      name: 'heroImage',
+      title: 'Hero Image',
+      description: 'The main background image for the homepage. Should be a high-quality, wide photo.',
+      type: 'image',
+      options: {
+        hotspot: true, // Allows better cropping
+      },
+    }),
   ],
   preview: {
     select: {
